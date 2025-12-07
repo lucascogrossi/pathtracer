@@ -3,6 +3,5 @@
 Compile and run with:
 
 ```bash
-make -C build && build/main > image.ppm
-convert image.ppm image.png
+make -C build && build/main > image.ppm && convert image.ppm image.png
 ```
