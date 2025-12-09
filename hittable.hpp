@@ -15,7 +15,7 @@ class hit_record {
 
         void set_face_normal(const ray& r, const vec3& outward_normal) {
             // Sets the hit record normal vector
-            // We assume `outward_normal` to have unit lenght
+            // We assume `outward_normal` to have unit length
 
             front_face = dot(r.direction(), outward_normal) < 0;
             normal = front_face ? outward_normal : -outward_normal;

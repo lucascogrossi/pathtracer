@@ -34,11 +34,11 @@ class vec3 {
             return *this *= 1/t;
         }
 
-        double lenght() const {
-            return std::sqrt(lenght_squared());
+        double length() const {
+            return std::sqrt(length_squared());
         }
 
-        double lenght_squared() const {
+        double length_squared() const {
             return e[0]*e[0] + e[1]*e[1] + e[2]*e[2];
         }
 
@@ -104,7 +104,7 @@ inline vec3 cross(const vec3& u, const vec3& v) {
 }
 
 inline vec3 unit_vector(const vec3& v) {
-    return v / v.lenght();
+    return v / v.length();
 }
 
 inline vec3 random_in_unit_disk() {
@@ -112,7 +112,7 @@ inline vec3 random_in_unit_disk() {
     while (true) {
         auto p = vec3(random_double(-1, 1), random_double(-1, 1), 0);
 
-        if (p.lenght_squared() < 1)
+        if (p.length_squared() < 1)
             return p;
     }
 }
@@ -120,7 +120,7 @@ inline vec3 random_in_unit_disk() {
 inline vec3 random_unit_vector() {
     while (true) {
         auto p = vec3::random(-1, 1);
-        auto lensq = p.lenght_squared();
+        auto lensq = p.length_squared();
         if (lensq <= 1 && 1e-160 < lensq)
             return p / sqrt(lensq);
     }
@@ -142,7 +142,7 @@ inline vec3 reflect(const vec3& v, const vec3& n) {
 inline vec3 refract(const vec3& uv, const vec3& n, double etai_over_etat) {
     auto cos_theta = std::fmin(dot(-uv, n), 1.0);
     vec3 r_out_perp = etai_over_etat * (uv + cos_theta * n);
-    vec3 r_out_parallel = -std::sqrt(std::fabs(1.0 - r_out_perp.lenght_squared())) * n;
+    vec3 r_out_parallel = -std::sqrt(std::fabs(1.0 - r_out_perp.length_squared())) * n;
     return r_out_perp + r_out_parallel;
 }
 
