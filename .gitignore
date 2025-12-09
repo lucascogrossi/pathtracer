@@ -24,6 +24,10 @@ Makefile
 *.jpeg
 *.bmp
 
+# Keep renders folder for README
+!renders/
+!renders/*
+
 # IDE and editor files
 .vscode/
 .idea/
