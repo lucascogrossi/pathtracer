@@ -1,6 +1,6 @@
 # Path Tracer
 
-A Monte Carlo path tracer written in C++ from scratch, implementing physically-based rendering with support for multiple material types and camera effects.
+A Monte Carlo path tracer written in C++ from scratch, implementing physically-based rendering with support for multiple material types and camera effects. Currently working on CUDA support.
 
 <table>
   <tr>
